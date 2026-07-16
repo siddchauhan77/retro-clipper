@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <title>RETRO CLIPPER // moment machine</title>
+  </head>
+  <body>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <div class="crt">
+      <header class="masthead">
+        <div class="brand">
+          <span class="rec-dot"></span>
+          <h1>RETRO CLIPPER</h1>
+          <span class="tape">MOMENT MACHINE</span>
+        </div>
+        <p class="subtitle">drop a tape &rarr; auto-slice into moments &rarr; export clips <span class="cursor">_</span></p>
+      </header>
+
+      <!-- UPLOAD -->
+      <section class="panel" id="upload-panel">
+        <div class="screws"><i></i><i></i><i></i><i></i></div>
+        <div class="dropzone" id="dropzone">
+          <div class="reel">◉</div>
+          <p class="dz-main">INSERT VIDEO</p>
+          <p class="dz-sub">drag a file here or</p>
+          <button class="btn" id="pick-btn">CHOOSE FILE</button>
+          <input type="file" id="file-input" accept="video/*" hidden />
+          <p class="dz-note">stays in your browser. nothing uploaded.</p>
+        </div>
+      </section>
+
+      <!-- WORKBENCH (hidden until a file loads) -->
+      <section class="workbench" id="workbench" hidden>
+        <div class="panel monitor">
+          <div class="screws"><i></i><i></i><i></i><i></i></div>
+          <div class="label-tape">PREVIEW</div>
+          <video id="preview" controls playsinline></video>
+          <div class="meta" id="meta"></div>
+        </div>
+
+        <div class="panel controls">
+          <div class="screws"><i></i><i></i><i></i><i></i></div>
+          <div class="label-tape">CONTROLS</div>
+
+          <div class="ctrl-row">
+            <span class="ctrl-label">SEGMENT</span>
+            <div class="seg-buttons" id="seg-buttons">
+              <button class="chip active" data-len="15">15s</button>
+              <button class="chip" data-len="30">30s</button>
+              <button class="chip" data-len="60">60s</button>
+            </div>
+          </div>
+
+          <button class="btn wide" id="generate-btn">SLICE INTO MOMENTS</button>
+          <button class="btn wide ghost" id="cutall-btn" hidden>CUT ALL CLIPS</button>
+
+          <div class="ai-soon">
+            <span class="dot"></span> AI MOMENT DETECTION &mdash; COMING SOON
+          </div>
+          <div class="status" id="status"></div>
+        </div>
+      </section>
+
+      <!-- CLIP GRID -->
+      <section class="grid-wrap" id="grid-wrap" hidden>
+        <div class="grid-head">
+          <span class="label-tape">CLIPS</span>
+          <span class="count" id="clip-count"></span>
+        </div>
+        <div class="clip-grid" id="clip-grid"></div>
+      </section>
+
+      <footer class="footer">
+        <span>NO SIGNAL &middot; ALL LOCAL &middot; ffmpeg.wasm</span>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
