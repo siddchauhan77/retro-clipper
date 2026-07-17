@@ -19,9 +19,17 @@
           <h1>RETRO CLIPPER</h1>
           <span class="tape">MOMENT MACHINE</span>
         </div>
-        <p class="subtitle">drop a tape &rarr; auto-slice into moments &rarr; export clips <span class="cursor">_</span></p>
+        <p class="subtitle">clip your tapes &middot; hunt the outliers <span class="cursor">_</span></p>
       </header>
 
+      <!-- MODE TOGGLE -->
+      <nav class="mode-switch">
+        <button class="mode-btn active" data-mode="clipper">✂ CLIPPER</button>
+        <button class="mode-btn" data-mode="database">📼 DATABASE</button>
+      </nav>
+
+      <!-- ================= CLIPPER VIEW ================= -->
+      <div id="clipper-view">
       <!-- UPLOAD -->
       <section class="panel" id="upload-panel">
         <div class="screws"><i></i><i></i><i></i><i></i></div>
@@ -75,6 +83,41 @@
         </div>
         <div class="clip-grid" id="clip-grid"></div>
       </section>
+      </div><!-- /clipper-view -->
+
+      <!-- ================= DATABASE VIEW ================= -->
+      <div id="database-view" hidden>
+        <section class="panel db-controls">
+          <div class="screws"><i></i><i></i><i></i><i></i></div>
+          <input type="text" id="db-search" class="db-search" placeholder="SEARCH TITLE, HANDLE, NICHE…" />
+          <div class="db-rows">
+            <div class="db-row">
+              <span class="ctrl-label">PLATFORM</span>
+              <div class="chip-group" id="db-platform">
+                <button class="chip active" data-plat="all">ALL</button>
+                <button class="chip" data-plat="youtube">YT</button>
+                <button class="chip" data-plat="instagram">IG</button>
+                <button class="chip" data-plat="tiktok">TIKTOK</button>
+              </div>
+            </div>
+            <div class="db-row">
+              <span class="ctrl-label">SORT</span>
+              <div class="chip-group" id="db-sort">
+                <button class="chip active" data-sort="outlier">📈 OUTLIER</button>
+                <button class="chip" data-sort="views">▶ VIEWS</button>
+                <button class="chip" data-sort="recent">🕑 RECENT</button>
+              </div>
+            </div>
+          </div>
+          <div class="db-note">Seed snapshot of real outlier videos (views vs each account's baseline). Live lookup &amp; more filters coming.</div>
+        </section>
+
+        <div class="grid-head">
+          <span class="label-tape">OUTLIERS</span>
+          <span class="count" id="db-count"></span>
+        </div>
+        <div class="db-grid" id="db-grid"></div>
+      </div><!-- /database-view -->
 
       <footer class="footer">
         <span>NO SIGNAL &middot; ALL LOCAL &middot; ffmpeg.wasm</span>

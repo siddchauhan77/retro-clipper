@@ -1,7 +1,21 @@
 import './style.css'
 import { cutSegment } from './ffmpeg.js'
+import { initDatabase } from './database.js'
 
 const $ = (id) => document.getElementById(id)
+
+// ---- Mode toggle: CLIPPER <-> DATABASE ----
+let dbReady = false
+document.querySelector('.mode-switch').addEventListener('click', (e) => {
+  const btn = e.target.closest('.mode-btn')
+  if (!btn) return
+  document.querySelectorAll('.mode-btn').forEach((b) => b.classList.remove('active'))
+  btn.classList.add('active')
+  const db = btn.dataset.mode === 'database'
+  $('clipper-view').hidden = db
+  $('database-view').hidden = !db
+  if (db && !dbReady) { initDatabase(); dbReady = true }
+})
 
 const state = {
   file: null,
