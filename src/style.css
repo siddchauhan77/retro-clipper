@@ -225,6 +225,28 @@ html, body {
 
 /* Database controls */
 .db-controls { margin-bottom: 22px; }
+
+/* Live lookup */
+.lookup { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.lookup-label {
+  font-family: 'VT323', monospace; font-size: 1rem; letter-spacing: 1px;
+  color: #ff3b30; white-space: nowrap; text-shadow: 0 0 8px rgba(255,59,48,0.6);
+}
+.lookup-input { margin-bottom: 0 !important; flex: 1; }
+.lookup-status { min-height: 16px; margin: 6px 0 4px; color: var(--green); font-size: 0.75rem; letter-spacing: 0.5px; }
+.db-divider {
+  display: flex; align-items: center; gap: 12px; margin: 16px 0;
+  color: var(--text-dim); font-size: 0.68rem; letter-spacing: 2px;
+}
+.db-divider::before, .db-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+/* Retro select */
+.db-select {
+  font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.78rem;
+  color: var(--text); background: #22261a; border: 2px solid var(--line);
+  border-radius: 5px; padding: 7px 12px; letter-spacing: 1px; cursor: pointer;
+}
+.db-select:focus { outline: none; border-color: var(--amber); }
 .db-search {
   width: 100%; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem;
   color: var(--text); background: #12140c; border: 2px solid var(--line);

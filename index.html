@@ -89,6 +89,17 @@
       <div id="database-view" hidden>
         <section class="panel db-controls">
           <div class="screws"><i></i><i></i><i></i><i></i></div>
+
+          <!-- LIVE CHANNEL LOOKUP -->
+          <div class="lookup">
+            <span class="lookup-label">🔴 LIVE</span>
+            <input type="text" id="db-lookup" class="db-search lookup-input" placeholder="@channel or youtube.com/@channel — find its outliers live" />
+            <button class="btn sm" id="lookup-btn">SCAN</button>
+          </div>
+          <div class="lookup-status" id="lookup-status"></div>
+
+          <div class="db-divider"><span>OR BROWSE THE DATABASE</span></div>
+
           <input type="text" id="db-search" class="db-search" placeholder="SEARCH TITLE, HANDLE, NICHE…" />
           <div class="db-rows">
             <div class="db-row">
@@ -101,6 +112,19 @@
               </div>
             </div>
             <div class="db-row">
+              <span class="ctrl-label">SIZE</span>
+              <div class="chip-group" id="db-size">
+                <button class="chip active" data-size="all">ALL</button>
+                <button class="chip" data-size="small">&lt;10K</button>
+                <button class="chip" data-size="mid">10K–1M</button>
+                <button class="chip" data-size="large">1M+</button>
+              </div>
+            </div>
+            <div class="db-row">
+              <span class="ctrl-label">FORMAT</span>
+              <select id="db-format" class="db-select"><option value="all">ALL FORMATS</option></select>
+            </div>
+            <div class="db-row">
               <span class="ctrl-label">SORT</span>
               <div class="chip-group" id="db-sort">
                 <button class="chip active" data-sort="outlier">📈 OUTLIER</button>
@@ -109,7 +133,7 @@
               </div>
             </div>
           </div>
-          <div class="db-note">Seed snapshot of real outlier videos (views vs each account's baseline). Live lookup &amp; more filters coming.</div>
+          <div class="db-note">Seed snapshot of real outlier videos (views vs each account's baseline). Use LIVE to scan any YouTube channel on demand.</div>
         </section>
 
         <div class="grid-head">
